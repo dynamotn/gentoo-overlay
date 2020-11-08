@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<repositories version="1.0">
+  <repo quality="experimental" status="official">
+    <name>dynamo</name>
+    <description lang="en">Personal overlay of dynamo that contain patched and new ebuilds</description>
+    <homepage>https://github.com/dynamotn/gentoo-overlay</homepage>
+    <owner type="person">
+      <email>dynamo.foss@gmail.com</email>
+      <name>Tran Duc Nam</name>
+    </owner>
+    <source type="git">git://github.com/dynamotn/gentoo-overlay.git</source>
+    <source type="git">https://github.com/dynamotn/gentoo-overlay.git</source>
+    <feed>https://github.com/dynamotn/gentoo-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
