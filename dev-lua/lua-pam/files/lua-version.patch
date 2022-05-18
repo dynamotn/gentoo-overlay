@@ -1,0 +1,9 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
+ set(SOURCE_DIR src)
+ 
+ add_library(lua_pam SHARED ${SOURCE_DIR}/main.cpp)
+-target_link_libraries(lua_pam lua pam)
++target_link_libraries(lua_pam lua${LUA_VERSION} pam)
++include_directories(${LUA_INCLUDE_DIR})
