@@ -2,9 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>robbat2@gentoo.org</email>
+    <email>dynamo.foss@gmail.com</email>
   </maintainer>
   <upstream>
-    <remote-id type="github">pavouk/lgi</remote-id>
+	  <remote-id type="github">devurandom/lua-pam</remote-id>
   </upstream>
 </pkgmetadata>

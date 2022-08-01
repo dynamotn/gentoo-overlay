@@ -5,11 +5,11 @@ EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} )
 
-inherit git-r3 cmake lua
+inherit git-r3 autotools lua
 
 DESCRIPTION="Lua bindings using PAM"
-HOMEPAGE="https://github.com/RMTT/lua-pam"
-EGIT_REPO_URI="https://github.com/RMTT/lua-pam.git"
+HOMEPAGE="https://github.com/devurandom/lua-pam"
+EGIT_REPO_URI="https://github.com/devurandom/lua-pam.git"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,29 +21,19 @@ RDEPEND="sys-libs/pam
 		${LUA_DEPS}"
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/lua-version.patch"
-)
-
-lua_src_configure() {
-	local mycmakeargs=(
-		-DLUA_INCLUDE_DIR="$(lua_get_include_dir)"
-		-DLUA_VERSION=$(ver_cut 1-2 $(lua_get_version))
-	)
-	cmake_src_configure
-}
-
-src_configure() {
-	lua_foreach_impl lua_src_configure
+lua_src_compile() {
+	emake \
+		LUA_CPPFLAGS=-I$(lua_get_include_dir) \
+		LUA_VERSION=$(ver_cut 1-2 $(lua_get_version))
 }
 
 src_compile() {
-	lua_foreach_impl cmake_src_compile
+	lua_foreach_impl lua_src_compile
 }
 
 lua_src_install() {
 	insinto "${PREFIX}/usr/$(get_libdir)/lua/$(ver_cut 1-2 $(lua_get_version))"
-	doins "${BUILD_DIR}/liblua_pam.so"
+	doins "pam.so"
 }
 
 src_install() {
