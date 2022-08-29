@@ -8,8 +8,8 @@ LUA_COMPAT=( lua5-{1..4} )
 inherit git-r3 autotools lua
 
 DESCRIPTION="Lua bindings using PAM"
-HOMEPAGE="https://github.com/devurandom/lua-pam"
-EGIT_REPO_URI="https://github.com/devurandom/lua-pam.git"
+HOMEPAGE="https://github.com/dynamotn/lua-pam"
+EGIT_REPO_URI="https://github.com/dynamotn/lua-pam.git"
 
 LICENSE="MIT"
 SLOT="0"

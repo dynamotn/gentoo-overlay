@@ -5,6 +5,6 @@
     <email>dynamo.foss@gmail.com</email>
   </maintainer>
   <upstream>
-	  <remote-id type="github">devurandom/lua-pam</remote-id>
+	  <remote-id type="github">dynamotn/lua-pam</remote-id>
   </upstream>
 </pkgmetadata>
