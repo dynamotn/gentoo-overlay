@@ -21,6 +21,11 @@ RDEPEND="sys-libs/pam
 		${LUA_DEPS}"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	default
+	lua_copy_sources
+}
+
 get_lua_version() {
 	if [[ ${ELUA} != luajit ]]; then
 		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
@@ -30,8 +35,9 @@ get_lua_version() {
 }
 
 lua_src_compile() {
-	get_lua_version
+	pushd "${BUILD_DIR}" || die
 
+	get_lua_version
 	emake \
 		LUA_CPPFLAGS=-I$(lua_get_include_dir) \
 		LUA_VERSION=$LUA_VERSION
@@ -42,8 +48,9 @@ src_compile() {
 }
 
 lua_src_install() {
-	get_lua_version
+	pushd "${BUILD_DIR}" || die
 
+	get_lua_version
 	insinto "${PREFIX}/usr/$(get_libdir)/lua/$LUA_VERSION"
 	doins "pam.so"
 }
