@@ -3,7 +3,7 @@
 
 EAPI=7
 
-LUA_COMPAT=( lua5-{1..4} )
+LUA_COMPAT=( lua5-{1..4} luajit )
 
 inherit git-r3 autotools lua
 
@@ -21,10 +21,20 @@ RDEPEND="sys-libs/pam
 		${LUA_DEPS}"
 DEPEND="${RDEPEND}"
 
+get_lua_version() {
+	if [[ ${ELUA} != luajit ]]; then
+		LUA_VERSION="$(ver_cut 1-2 $(lua_get_version))"
+	else
+		LUA_VERSION="5.1"
+	fi
+}
+
 lua_src_compile() {
+	get_lua_version
+
 	emake \
 		LUA_CPPFLAGS=-I$(lua_get_include_dir) \
-		LUA_VERSION=$(ver_cut 1-2 $(lua_get_version))
+		LUA_VERSION=$LUA_VERSION
 }
 
 src_compile() {
@@ -32,7 +42,9 @@ src_compile() {
 }
 
 lua_src_install() {
-	insinto "${PREFIX}/usr/$(get_libdir)/lua/$(ver_cut 1-2 $(lua_get_version))"
+	get_lua_version
+
+	insinto "${PREFIX}/usr/$(get_libdir)/lua/$LUA_VERSION"
 	doins "pam.so"
 }
 
