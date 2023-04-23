@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/make dev-lang/go
+DEFINED_PHASES=install
+DEPEND=app-i18n/ibus x11-libs/libX11 x11-libs/libXtst
+DESCRIPTION=Vietnamese Bamboo engine for IBus
+EAPI=7
+HOMEPAGE=https://github.com/BambooEngine/ibus-bamboo
+KEYWORDS=amd64 x86
+LICENSE=GPL-3
+RDEPEND=app-i18n/ibus
+SLOT=0
+SRC_URI=https://github.com/BambooEngine/ibus-bamboo/archive/v0.8.1-RC1.tar.gz -> ibus-bamboo-0.8.1_rc1.tar.gz
+_md5_=7d8615b08a07ecf68acf085f5f8ab2ea
