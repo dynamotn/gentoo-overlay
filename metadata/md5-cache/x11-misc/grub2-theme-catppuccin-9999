@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=Catppuccin theme for Grub
+EAPI=7
+HOMEPAGE=https://github.com/catppuccin/grub
+INHERIT=git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=sys-boot/grub
+SLOT=0
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
+_md5_=d36ba53c3c69abb5ef5a1583f6a92f5b
