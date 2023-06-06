@@ -9,4 +9,4 @@ PROPERTIES=live
 RDEPEND=sys-boot/grub
 SLOT=0
 _eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=d36ba53c3c69abb5ef5a1583f6a92f5b
+_md5_=be63dca995a95cd0a9950867e3f48fea
