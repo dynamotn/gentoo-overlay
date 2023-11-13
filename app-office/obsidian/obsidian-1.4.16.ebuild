@@ -14,7 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 S="${WORKDIR}"
-RDEPEND="net-print/cups"
+RDEPEND="
+	net-print/cups
+	dev-libs/nss"
 
 src_install() {
   insinto /opt/Obsidian
