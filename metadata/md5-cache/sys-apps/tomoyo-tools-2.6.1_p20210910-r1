@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:= !sys-apps/ccs-tools
 SLOT=0
 SRC_URI=https://jaist.dl.osdn.jp/tomoyo/70710/tomoyo-tools-2.6.1-20210910.tar.gz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
+_eclasses_=toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0
 _md5_=76830d8082f4e3ee99e2f610adfa1636
