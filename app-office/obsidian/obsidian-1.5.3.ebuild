@@ -16,7 +16,9 @@ KEYWORDS="~amd64"
 S="${WORKDIR}"
 RDEPEND="
 	net-print/cups
-	dev-libs/nss"
+	dev-libs/nss
+	x11-libs/cairo[X]
+"
 
 src_install() {
   insinto /opt/Obsidian
