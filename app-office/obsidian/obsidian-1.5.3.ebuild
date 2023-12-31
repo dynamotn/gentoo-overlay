@@ -17,7 +17,7 @@ S="${WORKDIR}"
 RDEPEND="
 	net-print/cups
 	dev-libs/nss
-	x11-libs/cairo[X]
+	x11-libs/gtk+[X]
 "
 
 src_install() {
