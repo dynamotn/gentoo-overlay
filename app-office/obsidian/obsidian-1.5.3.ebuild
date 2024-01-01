@@ -33,5 +33,8 @@ src_install() {
   fperms 4755 /opt/Obsidian/chrome-sandbox || die
   fperms +x /opt/Obsidian/obsidian || die
 
-  dosym ../../opt/Obsidian/obsidian /usr/bin/obsidian
+  echo -e "#!/bin/bash\n/opt/Obsidian/obsidian --ozone-platform=wayland --disable-gpu" > obsidian
+  insinto /usr/bin
+  doins obsidian
+  fperms +x /usr/bin/obsidian || die
 }
