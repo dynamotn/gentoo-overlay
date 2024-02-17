@@ -33,7 +33,7 @@ src_install() {
   fperms 4755 /opt/Obsidian/chrome-sandbox || die
   fperms +x /opt/Obsidian/obsidian || die
 
-  echo -e "#!/bin/bash\n/opt/Obsidian/obsidian --ozone-platform=wayland --disable-gpu" > obsidian
+  echo -e "#!/bin/bash\n/opt/Obsidian/obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu" > obsidian
   insinto /usr/bin
   doins obsidian
   fperms +x /usr/bin/obsidian || die
