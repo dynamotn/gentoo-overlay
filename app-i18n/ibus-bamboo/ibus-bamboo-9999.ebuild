@@ -22,7 +22,7 @@ RDEPEND="app-i18n/ibus"
 DEPEND="${RDEPEND}
 	x11-libs/libX11
 	x11-libs/libXtst"
-BDEPEND="sys-devel/make
+BDEPEND="dev-build/make
 	dev-lang/go"
 
 src_install() {
