@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/make dev-lang/go >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-build/make dev-lang/go >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
 DEPEND=app-i18n/ibus x11-libs/libX11 x11-libs/libXtst
 DESCRIPTION=Vietnamese Bamboo engine for IBus
@@ -10,5 +10,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=app-i18n/ibus
 SLOT=0
-_eclasses_=git-r3	5133e393e8717a3a093660f990801dc1
-_md5_=0a7927d8bae539b3503b0e3e68554240
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=3354cb121616d27b02600767b49a3c14
