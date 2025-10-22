@@ -11,6 +11,5 @@ RDEPEND="|| (
 	gnome-base/gnome-keyring
 	app-admin/keepassxc
 	app-admin/secret-service
+	>=kde-frameworks/kwallet-runtime-6.18.0[keyring]
 )"
-# TODO: add the KDE provider here once ready, there are still problems as of August 2023 though
-# (see https://bugs.kde.org/show_bug.cgi?id=458085)
