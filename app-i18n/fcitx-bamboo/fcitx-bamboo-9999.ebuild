@@ -15,5 +15,5 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=app-i18n/fcitx-5.0.0"
 DEPEND="${RDEPEND}"
-BDEPEND="dev-util/cmake
+BDEPEND="dev-build/cmake
 	dev-lang/go"
