@@ -1,37 +1,102 @@
-# Copyright 2017-2022 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CRATES=""
-
-inherit cargo
-
-DESCRIPTION="Regreet greeter for greetd login manager"
+inherit cargo readme.gentoo-r1 tmpfiles
+DESCRIPTION="A clean and customizable GTK-based greetd greeter written in Rust"
 HOMEPAGE="https://github.com/rharish101/ReGreet"
 
-inherit git-r3
-EGIT_REPO_URI="${HOMEPAGE}"
+if [[ ${PV} == 9999 ]]; then
+  inherit git-r3
+  EGIT_REPO_URI="https://github.com/rharish101/${PN}.git"
+else
+  SRC_URI="
+		https://github.com/rharish101/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+		${CARGO_CRATE_URIS}
+	"
+  KEYWORDS="~amd64"
+fi
 
-src_unpack() {
-	git-r3_src_unpack
-	cargo_live_src_unpack
-}
-
-QA_FLAGS_IGNORED="usr/bin/regreet"
-
-LICENSE="Apache-2.0 Boost-1.0 GPL-3 MIT"
+LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="acct-group/greetd
-	acct-user/greetd
-	gui-libs/greetd"
-DEPEND="${RDEPEND}"
+RDEPEND="
+	systemd? ( sys-apps/systemd[sysv-utils] )
+	openrc? ( sys-apps/openrc[sysv-utils] )
+	gui-libs/gtk
+	gui-libs/greetd
+	dev-libs/glib
+	media-libs/graphene
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/pango
+"
+IUSE="systemd openrc"
+
+QA_FLAGS_IGNORED="/usr/bin/regreet"
+
+src_unpack() {
+  if [[ ${PV} == 9999 ]]; then
+    git-r3_src_unpack
+    cargo_live_src_unpack
+  else
+    unpack "${PN}.tar.gz"
+    cargo_src_unpack
+  fi
+}
+
+src_configure() {
+  local myfeatures=(
+    gtk4_8
+  )
+
+  cargo_src_configure
+}
+
+src_prepare() {
+  default
+
+  if use systemd; then
+    sed -i 's/greeter/greetd/g' "${S}/systemd-tmpfiles.conf" || die
+  fi
+}
+
+src_compile() {
+  cargo_gen_config
+
+  # Export default configuration
+  export RUSTUP_TOOLCHAIN=stable
+  export GREETD_CONFIG_DIR="/etc/greetd"
+  export STATE_DIR="/var/lib/regreet"
+  export LOG_DIR="/var/log/regreet"
+  export SESSION_DIRS="/usr/share/xsessions:/usr/share/wayland-sessions"
+  # Require sysv-utils useflag enable on the init system
+  export REBOOT_CMD="reboot"
+  export POWEROFF_CMD="poweroff"
+
+  cargo_src_compile
+}
 
 src_install() {
-	dodir /var/cache/${PN}
-	fowners greetd:greetd /var/cache/${PN}
-	keepdir /var/cache/${PN}
+  cargo_src_install
 
-	cargo_src_install
+  if use systemd; then
+    newtmpfiles "${WORKDIR}/${P}/systemd-tmpfiles.conf" regreet.conf
+  elif use openrc; then
+    keepdir /var/log/regreet
+    fowners greetd:greetd /var/log/regreet
+    fperms 0755 /var/log/regreet
+
+    keepdir /var/lib/regreet
+    fowners greetd:greetd /var/lib/regreet
+    fperms 0755 /var/lib/regreet
+  fi
+}
+
+src_post_install() {
+  if use systemd; then
+    # Run systemd-tmpfiles to create the log and cache folder
+    tmpfiles_process regreet.conf
+  fi
 }
