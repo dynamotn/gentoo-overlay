@@ -1,17 +1,18 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 MY_PV="${PV/_rc/-RC}"
 DESCRIPTION="Vietnamese Bamboo engine for IBus"
 HOMEPAGE="https://github.com/BambooEngine/ibus-bamboo"
 
 if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/BambooEngine/${PN}.git"
+  inherit git-r3
+  EGIT_REPO_URI="https://github.com/BambooEngine/${PN}.git"
 else
-	SRC_URI="https://github.com/BambooEngine/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+  DISTNAME="${PN}-v${MY_PV}"
+  SRC_URI="https://github.com/BambooEngine/${PN}/archive/v${MY_PV}.tar.gz -> ${DISTNAME}.tar.gz"
 fi
 
 LICENSE="GPL-3"
@@ -26,7 +27,8 @@ BDEPEND="dev-build/make
 	dev-lang/go"
 
 src_install() {
-	emake DESTDIR="${D}" install
-	cp ${FILESDIR}/us.svg ${D}/usr/share/ibus-bamboo/icons/us.svg
-	cp ${FILESDIR}/vi.svg ${D}/usr/share/ibus-bamboo/icons/vi.svg
+  default
+  insinto /usr/share/ibus-bamboo/icons
+  doins "${FILESDIR}"/us.svg
+  doins "${FILESDIR}"/vi.svg
 }

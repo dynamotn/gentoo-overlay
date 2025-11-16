@@ -2,7 +2,7 @@ BDEPEND=dev-build/cmake dev-lang/go >=dev-vcs/git-1.8.2.1[curl] app-alternatives
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=app-i18n/fcitx-5.0.0
 DESCRIPTION=Vietnamese Bamboo engine for Fcitx
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/fcitx/fcitx5-bamboo
 INHERIT=git-r3 cmake
 KEYWORDS=~amd64 ~x86
@@ -10,5 +10,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=app-i18n/fcitx-5.0.0
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c34c4b7abe27f71d1e7770f36cc51eed
-_md5_=c92fcb987033fdd83dd2a98a91e62499
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
+_md5_=5030c0a8971331e8d15748449dd0bd28
