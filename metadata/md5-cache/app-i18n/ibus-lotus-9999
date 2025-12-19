@@ -1,0 +1,14 @@
+BDEPEND=dev-build/make dev-lang/go >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DEPEND=>=app-i18n/ibus-1.5.33 x11-libs/libX11 x11-libs/libXtst
+DESCRIPTION=Ibus Lotus - Vietnamese IME with Ibus
+EAPI=8
+HOMEPAGE=https://github.com/LotusInputEngine/ibus-lotus
+INHERIT=git-r3
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=>=app-i18n/ibus-1.5.33
+SLOT=0
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=3f4e9a634f29772c5523f9ee4219e90e
