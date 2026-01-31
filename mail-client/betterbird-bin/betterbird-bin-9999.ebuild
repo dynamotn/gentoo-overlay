@@ -7,7 +7,7 @@ inherit desktop xdg
 
 DESCRIPTION="Betterbird is a fine-tuned version of Mozilla Thunderbird."
 HOMEPAGE="https://github.com/Betterbird/thunderbird-patches/ https://betterbird.eu/"
-SRC_URI="https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${PV}esr-bb15-build2.en-US.linux-x86_64.tar.xz"
+SRC_URI="https://www.betterbird.eu/downloads/get.php?os=linux&lang=en-US&version=release -> ${P}.tar.xz"
 
 S="${WORKDIR}"
 LICENSE="MPL-2.0"
