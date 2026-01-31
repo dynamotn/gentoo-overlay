@@ -1,1 +1,0 @@
-- Remove app-i18n/ibus when ibus 1.5.33 is stable in official repo
