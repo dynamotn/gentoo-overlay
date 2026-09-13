@@ -10,5 +10,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=app-i18n/ibus
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=git-r3	e6c2f983e006e805160436c75a0c1562
 _md5_=f403c93272b6b4f9bb4246bd8c60da09

@@ -5,7 +5,11 @@
 		<email>dynamo.foss@gmail.com</email>
 		<name>Tran Duc Nam</name>
 	</maintainer>
+	<use>
+		<flag name="openrc">Install the OpenRC init script for fcitx5-lotus-server</flag>
+		<flag name="systemd">Install the systemd unit for fcitx5-lotus-server</flag>
+	</use>
 	<upstream>
-		<remote-id type="github">BambooEngine/ibus-bamboo</remote-id>
+		<remote-id type="github">LotusInputMethod/fcitx5-lotus</remote-id>
 	</upstream>
 </pkgmetadata>
